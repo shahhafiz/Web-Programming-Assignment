@@ -1,0 +1,125 @@
+<% include partials/header %>
+<body>
+
+	<header>
+		<img src="/images/logowithtext.png" height="100" width="250"></img>
+	</header>
+	
+	<nav id="navbar">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About Us</a></li>
+			<li><a href="/login">Login</a></li>
+			<li><a class="active" href="/">Register</a></li>
+		</ul>
+	</nav>
+
+	
+	<main>
+		
+		<div class="row">
+		<form class="form-horizontal" action="/register" method="POST">
+					<div id="personal" class="jumbotron">
+						<h2>Personal</h2>
+						
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="name">Full Name:</label>
+							<div class="col-sm-8">
+							  <input type="text" class="form-control" name="fullname" placeholder="As spelled on NRIC" required>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="ic">NRIC:</label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control" name="nric" placeholder="As stated on NRIC" required>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="address">Address:</label>
+							<div class="col-sm-8">
+							  <textarea class="form-control" name="address" rows="4" required></textarea>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="email">E-mail:</label>
+							<div class="col-sm-8">
+							  <input type="email" class="form-control" name="email" placeholder="somename@anything.com" required>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="username">Username:</label>
+							<div class="col-sm-5">
+							  <input type="text" class="form-control" name="username" required>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="pwd">New Password:</label>
+							<div class="col-sm-5"> 
+							  <input type="password" class="form-control" name="password" placeholder="Enter password" required>
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label class="control-label col-sm-2" for="pwd2">Retype Password:</label>
+							<div class="col-sm-5"> 
+							  <input type="password" class="form-control" name="pwd2" placeholder="Retype password" required>
+							</div>
+						  </div>
+						<!--</form>-->
+					</div>
+					<div id="career" class="jumbotron">
+						<h2>Career</h2>
+						<!--<form class="form-horizontal" action="error.html">-->
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="job">Job:</label>
+								<div class="col-sm-5">
+								  <input type="text" class="form-control" name="job" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="sector">Sector:</label>
+								<div class="col-sm-5">
+								  <input type="text" class="form-control" name="sector" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="salary">Salary:</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" name="salary" placeholder="000000" required></input>
+								</div>
+							</div>
+						<!--</form>-->
+					</div>
+				<!--	<div id="security" class="jumbotron">
+						<h2>Security</h2>
+						<form class="form-horizontal" action="error.html">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="questions">Favourite color:</label>
+								<div class="col-sm-5">
+								  <input type="text" class="form-control" name="questions">
+								</div>
+							</div>
+						</form>-->
+					</div> 
+					<div id="agreement" class="jumbotron">
+
+						<h2>Agreement</h2>
+						<!--<form action="error.html">-->
+						<p>By signing up for Obbank, you agreed with all terms and conditions.
+						 Obbies Group may change the policies without prior notice.
+						  Thanks for joining Obbank!</p>
+							  <button type="submit" class="btn btn-default">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	
+	</main>
+	
+	<% include partials/footer %>
+
+</body>
+
+
+
+</html>

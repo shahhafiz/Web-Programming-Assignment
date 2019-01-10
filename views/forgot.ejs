@@ -1,0 +1,23 @@
+<% include partials/header %>
+<body>
+	
+	<main>
+		<br><br><img id="oblogo" src="/images/logowithtext.png" height="100" width="250"></img>
+		<br><a href="/index"><< Back to Home</a><br><br>
+		<div class="jumbotron" id="loginpage">
+		<h3>Forgot Your Password?</h3><br>
+		<form id=login action="/login/forgot" method="POST">
+			<input type="text" name="username" placeholder="username"></input>
+			<label>What is your favourite colour?:<br>
+			<input type="text" name="questions"></input>
+			</label><br><br>
+			<button action="submit">Submit</button><br><br>
+		</form>
+		</div>
+	</main>
+	
+	<% include partials/footer %>
+
+</body>
+
+</html>

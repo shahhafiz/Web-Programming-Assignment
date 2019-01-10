@@ -1,0 +1,26 @@
+<% include partials/header %>
+<body>
+	
+	<main>
+		<br><br><img id="oblogo" src="/images/logowithtext.png" height="100" width="250"></img>
+		<br><a href="/"><< Back to Home</a><br><br>
+		<div class="jumbotron" id="loginpage">
+		<h3>Login</h3><br>
+		<form id="login" action="/login" method="POST">
+			<label>Username:<br>
+			<input type="text" name="username"></input>
+			</label><br>
+			<label>Password:<br>
+			<input type="password" name="password"></input>
+			</label><br>
+		<!--	<label><input type="checkbox"> Remember me</label><br>
+			<a href="/forgot">Forgot password</a><br>    -->
+			<a href="/register">Didn't have account yet?</a><br><br><br>
+			<button action="submit">Submit</button><br><br>
+		</form>
+		</div>
+	</main>
+	<% include partials/footer %>
+</body>
+
+</html>

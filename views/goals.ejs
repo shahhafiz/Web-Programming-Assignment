@@ -1,0 +1,158 @@
+<% include partials/loginheader %>
+<% include partials/timedate %>
+
+<body onload="startTime()">
+	<script type="text/javascript">
+		function promptMe(){
+	    var target = prompt("Please provide target saving");
+	    var month = prompt("Please provide duration");
+	    monthlySaving = target/month;
+	    alert (monthlySaving);
+	    document.querySelector("#special").textContent = "RM"+monthlySaving;
+}
+	</script>
+
+	<div id="head">
+	<header>
+		<img id="logo" src="/images/logowithtext.png" height="60" width="150"></img>
+		<div id="txt"></div><br>
+	</header>
+	
+	<nav>
+		<button id="logout" class="btn link" data-toggle="modal" data-target="#myModal">Logout</button>
+		<button id="back" class="btn-link" onclick="location.href='/userhome/<%= id %>';"> << Back </button>
+	</nav>
+	</div>
+
+	<main>
+	
+	<div class="container">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Logout</h4>
+				</div>
+				<div class="modal-body" action="index.html">
+					<p>Are you sure want to logout?</p>
+					
+					<a href="/logout"><button>Yes</button></a>
+					<a href="/userhome/<%= id %>/goals"><button>No</button></a>
+				</div>
+			  </div>
+			  
+			</div>
+		</div></div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<a href="#">
+				<div class="jumbotron" id="up3">
+					<h3>Saving Goal:</h3>
+					<h1  >RM<%= user.savingGoal %></h1>
+					<h3>Current Saving:</h3>
+					<h1  >RM<%= user.currentSaving %></h1>
+					<h3>Monthly Saving:</h3>
+					<h1 id="special">RM<%= user.monthlySaving %></h1>
+				</div>
+				</a>
+			</div>
+			
+			<div class="col-sm-6">
+				<a href="#">
+				<div class="jumbotron" id="up4">
+					<h3>Spending Summary:</h3>
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Category', 'Expenditure'],
+          ['Food',     <%= food %>],
+          ['Groceries',      <%= grocery%>],
+          ['Entertainment',  <%= entertainment%>],
+          ['Transport', <%= transport%>],
+          ['Shopping',    <%= shopping%>]
+        ]);
+
+        var options = {
+          backgroundColor: 'transparent',
+          width: 600,
+          height: 400
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" <!-- style="width: 600px; height: 350px; " -->></div>
+				</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+			<div class="jumbotron" id="up9">
+				<h3>Saving Progress</h3>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= user.currentSaving %>"
+				  aria-valuemin="0" aria-valuemax="100" style="width:<%= (user.currentSaving/user.savingGoal)*100 %>%">
+				    RM<%= user.currentSaving %> saved
+				  </div>
+				</div>
+			</div></div>
+		</div>
+
+		<div class="row">
+		<div class="col-sm-6">
+			<div class="jumbotron" id="up8">
+				<h3>Set your goals</h3>
+				<form action="/userhome/<%=id%>/goals/edit" method="POST">
+					<div class="row" id="f1">
+						<div class="form-group col-xs-10">
+							<p>Saving Goal:<br>
+							<input  class="form-control" type="text" name="savingGoal" placeholder="000000"></input></p>
+						</div>
+					</div>
+					<div class="row" id="f2">
+						<div class="form-group col-xs-10">
+							<p>Duration (month):<br>
+							<input class="form-control" type="text" name="duration" placeholder="000"></input></	p>
+						</div>
+					</div>
+					<button class="btn btn-lg btn-default" onclick="submit">Calculate</button>
+				</form>	
+			</div></div>
+			<div class="col-sm-6">
+			<div class="jumbotron" id="up8">
+				<h3><br>Update saving for this month?<br><br></h3>
+				<form action="/userhome/<%=id%>/goals/update" method="POST">
+					<button>Update</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	</main>
+	<% include partials/loginfooter %>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   	
+    <script type="text/javascript" src="javascript.js"></script>
+	<script>
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,120 @@
+<% include partials/loginheader %>
+<% include partials/timedate %>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+
+<body onload="startTime()">
+
+	<header>
+		<img id="logo" src="/images/logowithtext.png" height="60" width="150"></img><div id="txt"></div><br>
+		</header>	
+	<nav>
+		<button id="logout" class="btn link" data-toggle="modal" data-target="#myModal">Logout</button>
+		<button id="back" class="btn-link" onclick="location.href='/userhome/<%= id %>';"><< Back</button>
+	</nav>
+	
+	
+	<main>
+	
+	<div class="container">
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Logout</h4>
+				</div>
+				<div class="modal-body" action="index.html">
+					<p>Are you sure want to logout?</p>
+					
+					<a href="/logout"><button>Yes</button></a>
+					<a href="/userhome/<%= id %>/expenses"><button>No</button></a>
+				</div>
+			  </div>
+			  
+			</div>
+		</div></div>
+		
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="jumbotron" id="up1">
+					<% var sum = 0 %>
+					<% user.transactions.forEach(function(transaction){ %>
+						<%sum += transaction.amount%>
+					<% }) %>
+					<h3>Current balance:</h3>
+					<h1>RM<%= user.salary - sum %></h1>
+					<h3>Current expenditure:</h3>
+					<h1>RM<%= sum %></h1>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="jumbotron" id="up2">
+					<!--<div class="container">-->
+						<form action="/userhome/<%= id %>/expenses" method="POST">
+						  <div class="form-group">
+						    <label for="date">Date</label>
+						    <input type="date" class="form-control" id="date" placeholder="Date" name="transaction[date]">
+						  </div>
+						  <div class="form-group">
+						    <label for="amount">Amount (RM)</label>
+						    <input type="number" class="form-control" id="amount" placeholder="Amount" name="transaction[amount]">
+						  </div>
+						  <div class="form-group">
+						    <label for="type">Type</label>
+						    <select class="form-control" name="transaction[type]">
+								<option value="Food">Food</option>
+								<option value="Groceries">Groceries</option>
+								<option value="Entertainment">Entertainment</option>
+								<option value="Shopping">Shopping</option>
+								<option value="Transport">Transport</option>
+							</select>
+						  </div>
+						  <button type="submit" class="btn btn-default"><h4>Add new transaction</h4></button>
+						</form>
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+			<div class="row">
+			<div class="jumbotron" id="table">
+				<div class="container">
+		         <!--   <button id="button" style="float: left; width: 200px; font-size: 15px !important; margin-bottom: 3px; margin-left: 10px;  ">Delete Selected Row</button> -->
+		            <button onclick="exportTableToCSV('expenses.csv')" style="font-size:15px !important;">Export to CSV</button>
+					<table id="example" class="table table-striped table-bordered display">
+		                <thead>
+		                    <tr>
+		                        <th>#</th>
+		                        <th>Date</th>
+		                        <th>Amount</th>
+		                        <th>Category</th>
+		                    </tr>
+		                </thead>
+		            	<% user.transactions.forEach(function(transaction){ %>
+		                    <tr>
+		                        <td>#</td>
+		                        <td><%= transaction.date %></td>
+		                        <td><%= transaction.amount %></td>
+		                        <td><%= transaction.type %></td>
+		                    </tr>
+		                <% }); %>
+		                <!-- <tfoot>
+		                </tfoot> -->
+		            </table>
+				</div>
+	</div>
+	</main>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/javascripts/javascript.js"></script>
+	<script src="/javascripts/download.js"></script>
+	<script src="/javascripts/export.js"></script>
+
+<% include partials/loginfooter %>
+</body>
+
+</html>
+</head>

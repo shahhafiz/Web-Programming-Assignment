@@ -1,0 +1,155 @@
+body{
+	background-color: #B4BFFF!important;
+	color:gray;
+	padding:25px 20px 25px 20px;
+	font-family: 'Poppins', sans-serif !important;
+	transition-duration:8s;
+}
+
+body:hover{
+	background-color:white!important;
+	padding:25px 20px 25px 20px;
+	font-family: 'Poppins', sans-serif !important;
+	transition-duration:1s;
+}
+
+ul{
+	position:sticky;
+	top:0;
+	padding:15px 10px 15px 10px;
+	font-size:20px!important;
+}
+
+li{
+	display:inline;
+}
+
+li a{
+	color:black!important;
+	text-align:center!important;
+	padding-left:15px;
+	padding-right:15px;
+	font-size:20px!important;
+	transition-duration:1s;
+}
+
+button{
+	color:black!important;
+	padding-bottom:2px!important;
+	padding-top:0px!important;
+	border-radius:0px!important;
+	font-size:20px!important;
+	padding-left:15px!important;
+	padding-right:15px!important;
+}
+
+li a:hover,button:hover{
+	background-color:#2d3192!important;
+	text-decoration:none!important;
+	color:white!important;
+	transition-duration:1s;
+}
+
+.active{
+	color:#2d3192!important;
+	background-color:#B4BFFF!important;
+	transition-duration:1s;
+}
+
+a:link{
+	text-decoration:none;
+}
+
+header,nav,main,footer,#foot,#login{
+	text-align:center;
+}
+
+h2{
+	text-align:left !important;
+	padding-left:20px !important;
+}
+
+p{
+	text-align:left;
+	padding-left:24px;
+}
+
+ul.s{
+	list-style-type:circle !important;
+}
+
+li.s{
+	text-align:left;
+	padding-left:28px;
+	display:block;
+}
+
+
+#sub{
+	text-align:center;
+	width:300px;
+}
+
+#eula{
+	font-size:14px;
+	background-color:white;
+	width:800px;
+	height:400px;
+	overflow:scroll;
+}
+
+.form-check-label{
+	float:none;
+}
+
+img{
+	float:center!important;
+}
+
+#history,#mission,#vision,#services,#team{
+	height:300px!important;
+	color:white;
+	background-image:url("../images/about1.jpg");
+	background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+	opacity:0.8;
+	padding:20px 20px 10px 0px !important;
+	margin-bottom:5px !important;
+	transition-duration:1s;
+}
+
+#history:hover,#mission:hover,#vision:hover,#services:hover,#team:hover{
+	color:white;
+	opacity:1;
+	transition-duration:1s;
+}
+
+#loginpage{
+	height:400px!important;
+	background-image:url("../images/login.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	padding:20px 20px 10px 0px !important;
+	margin-bottom:5px !important;
+	color:black;
+}
+
+#personal,#career,#security,#agreement{
+	color:white;
+	background-image:url("../images/register.jpg");
+	background-repeat: no-repeat;
+    background-position: left bottom;
+    background-attachment: fixed;
+    background-size: 100%;
+	opacity:0.7;
+	padding:20px 20px 10px 0px !important;
+	margin-bottom:5px !important;
+	transition-duration:1s;
+}
+
+#personal:hover,#career:hover,#security:hover,#agreement:hover{
+	color:white;
+	opacity:1;
+	transition-duration:1s;
+}
