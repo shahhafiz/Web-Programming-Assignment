@@ -11,7 +11,7 @@ var express  		= require("express"),
 
 
 //mongoose.connect("mongodb://localhost/group7");
- mongoose.connect("mongodb://shahhafiz:shah@ds245238.mlab.com:45238/obbank");
+ mongoose.connect(<APIKEY>");
 // seedDB();
 var app = express();
 app.set("view engine","ejs");
